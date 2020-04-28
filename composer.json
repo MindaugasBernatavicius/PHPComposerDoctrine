@@ -1,0 +1,17 @@
+{
+    "name": "darba/composer-demo",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "MindaugasBernatavicius",
+            "email": "darbas.mindaugas@gmail.com"
+        }
+    ],
+    "require": {
+        "doctrine/orm": "^2.7"
+    },
+    "autoload": {
+        "files": ["src/Product.php"]
+    }
+}
