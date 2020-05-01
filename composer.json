@@ -12,6 +12,6 @@
         "doctrine/orm": "^2.7"
     },
     "autoload": {
-        "files": ["src/Product.php"]
+        "files": ["src/Product.php", "src/Student.php"]
     }
 }
