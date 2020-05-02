@@ -50,6 +50,11 @@ class Product
     {
         $this->name = $name;
     }
+
+    public function getShippment()
+    {
+        return $this->shipment;
+    }
 }
 
 /**
@@ -64,6 +69,21 @@ class Shipments
      * @ORM\GeneratedValue
      */
     protected $id;
+
+    /** 
+     * @ORM\Column(type="string") 
+     */
+    protected $shipmentDetails;
+
+    public function setShippmentDetails($details)
+    {
+        $this->shipmentDetails = $details;
+    }
+
+    public function getShippmentDetails()
+    {
+        return $this->shipmentDetails;
+    }
 }
 
 /**
@@ -85,4 +105,9 @@ class Feature
      * @ORM\JoinColumn(name="product_id", referencedColumnName="id")
      */
     private $product;
+
+    public function getName()
+    {
+        return $this->name;
+    }
 }

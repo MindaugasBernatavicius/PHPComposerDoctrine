@@ -48,6 +48,11 @@ class Address
      * @ORM\GeneratedValue
      */
     protected $id;
+
+    /** 
+     * @ORM\Column(type="string") 
+     */
+    protected $addressValue;
 }
 
 /**
