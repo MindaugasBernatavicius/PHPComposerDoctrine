@@ -15,7 +15,8 @@
         "files": [
 			"src/models/Product.php",
 			"src/models/Student.php",
-			"src/models/User.php"
+			"src/models/User.php",
+			"src/models/Customer.php"
 		]
     }
 }
