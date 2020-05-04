@@ -56,6 +56,11 @@ class Product
     {
         return $this->shipment;
     }
+
+    public function setShippment($s)
+    {
+        $this->shipment = $s;
+    }
 }
 
 /**
