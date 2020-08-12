@@ -6,14 +6,16 @@ function startsWith($string, $startString) {
 } 
 
 $request = $_SERVER['REQUEST_URI'];
+// $rootPath = '/PHPComposerDoctrine/';
+$rootPath = '/';
 
-if(startsWith($request, '/PHPComposerDoctrine/Entities')){
+if(startsWith($request, $rootPath . 'Entities')){
     require __DIR__ . '/src/views/entities.php';
-} elseif (startsWith($request, '/PHPComposerDoctrine/Relations')){
+} elseif (startsWith($request, $rootPath . 'Relations')){
     require __DIR__ . '/src/views/relations.php';
-} elseif (startsWith($request, '/PHPComposerDoctrine/Playground')){
+} elseif (startsWith($request, $rootPath . 'Playground')){
     require __DIR__ . '/src/views/playground.php';
-} elseif (startsWith($request, '/PHPComposerDoctrine/')){
+} elseif (startsWith($request, $rootPath)){
     print('
         <a href="Entities">Go to ORM ENTITIES examples</a><br>
         <a href="Relations">Go to ORM RELATIONS examples</a><br>
