@@ -29,8 +29,8 @@ if(isset($_POST['update_shipment_details'])){
     redirect_to_root();
 }
 
-print("<pre>Find shippment for specific product: " . "<br>");
-$product = $entityManager->find('Product', 1);
+print("<pre>Find shippment for specific product (choose product with shipment): " . "<br>");
+$product = $entityManager->find('Product', 2);
 if($product){
     print($product->getName());
     $shipment = $product->getShippment();

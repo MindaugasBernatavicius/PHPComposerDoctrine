@@ -11,10 +11,13 @@ if(startsWith($request, '/PHPComposerDoctrine/Entities')){
     require __DIR__ . '/src/views/entities.php';
 } elseif (startsWith($request, '/PHPComposerDoctrine/Relations')){
     require __DIR__ . '/src/views/relations.php';
+} elseif (startsWith($request, '/PHPComposerDoctrine/Playground')){
+    require __DIR__ . '/src/views/playground.php';
 } elseif (startsWith($request, '/PHPComposerDoctrine/')){
     print('
         <a href="Entities">Go to ORM ENTITIES examples</a><br>
         <a href="Relations">Go to ORM RELATIONS examples</a><br>
+        <a href="Playground">Go to Playground page</a><br>
         <a href="About">Go to ABOUT page</a>
     ');
 } else {
