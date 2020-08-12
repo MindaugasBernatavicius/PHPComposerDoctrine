@@ -86,8 +86,9 @@ In the previous examples we had these entities with the following relations:
     // [TASK] 3. Can we reach cart from customer?
     // [ACTION] 
 
-    print($entityManager->find('Customer', 7)->getName() . '<br>');
-    print($entityManager->find('Customer', 7)->getCart()->getItem() . '<br>');
+    echo serialize($entityManager->find('Customer', 7));
+    // print($entityManager->find('Customer', 7)->getName() . '<br>');
+    // print($entityManager->find('Customer', 7)->getCart()->getItem() . '<br>');
 
     // [RESULT] Yes, we can reach cart from customer object.
 
