@@ -1,5 +1,4 @@
 <?php 
-
     include_once "bootstrap.php";
 
     // Helper functions
@@ -13,9 +12,11 @@
         $product->setName($_GET['product_name']);
         $shipment = new Shipments();
         $shipment->setShippmentDetails($_GET['shipment_details']);
-        $entityManager->persist($shipment);
+
+        // $entityManager->persist($shipment);
         $product->setShippment($shipment);
         $entityManager->persist($product);
+
         $entityManager->flush();
         redirect_to_root();
     }
@@ -24,14 +25,14 @@
     if(isset($_GET['customer_name'])){
         $customer = new Customer();
         $customer->setName($_GET['customer_name']);
-
         $cart = new Cart();
         $cart->setItem($_GET['cart_item']);
+
         $cart->setCustomer($customer);
         $entityManager->persist($cart);
-
         // $customer->setCart($cart); // superflous
         $entityManager->persist($customer);
+
         $entityManager->flush();
         redirect_to_root();
     }
@@ -69,14 +70,14 @@ In the previous examples we had these entities with the following relations:
     // [RESULT] Fatal error: Uncaught Doctrine\ORM\ORMInvalidArgumentException: A new entity was found through the relationship 'Product#shipment' th
     
     // We don't need to flush, but we need to persist if there is a relation
-    // We can also add @ManyToOne(..,cascade={"persist"}) as the error specifies
+    // We can also add @ManyToOne(... , cascade={"persist"}) as the error specifies
 
     // [TASK] 1. Can we reach shipment from product object?
     // [ACTION] 
 
-    // print($entityManager->find('Product', 1)->getName() . '<br>');
-    // print($entityManager->find('Shipments', 1)->getShippmentDetails() . '<br>');
-    // print($entityManager->find('Product', 1)->getShippment()->getShippmentDetails() . '<br>');
+    // print($entityManager->find('Product', 3)->getName() . '<br>');
+    // print($entityManager->find('Shipments', 3)->getShippmentDetails() . '<br>');
+    // print($entityManager->find('Product', 3)->getShippment()->getShippmentDetails() . '<br>');
 
     // [RESULT] Yes, we can reach shipment from product object.
 
@@ -86,17 +87,19 @@ In the previous examples we had these entities with the following relations:
     // [TASK] 3. Can we reach cart from customer?
     // [ACTION] 
 
-    echo serialize($entityManager->find('Customer', 7));
-    // print($entityManager->find('Customer', 7)->getName() . '<br>');
-    // print($entityManager->find('Customer', 7)->getCart()->getItem() . '<br>');
+    // echo serialize($entityManager->find('Customer', 1));
+    // var_dump($entityManager->find('Customer', 1));
+
+    print($entityManager->find('Customer', 1)->getName() . '<br>');
+    print($entityManager->find('Customer', 1)->getCart()->getItem() . '<br>');
 
     // [RESULT] Yes, we can reach cart from customer object.
 
     // [TASK] 4. Can we reach customer from cart object?
     // [ACTION] 
 
-    print($entityManager->find('Cart', 8)->getItem() . '<br>');
-    print($entityManager->find('Cart', 8)->getCustomer()->getName() . '<br>');
+    print($entityManager->find('Cart', 1)->getItem() . '<br>');
+    print($entityManager->find('Cart', 1)->getCustomer()->getName() . '<br>');
 
     // [RESULT] Yes, we cat reach customer from cart object! That is the magic!
     
