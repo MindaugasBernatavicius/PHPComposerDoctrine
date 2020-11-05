@@ -33,13 +33,15 @@ if(isset($_POST['update_name'])){
 }
 
 print("<pre>Find Product by id: " . "<br>");
-$product = $entityManager->find('Product', 66);
-// $product = $entityManager->find('Models\Product', 3); // jei naudojame namespaceus
+// $product = $entityManager->find('Product', 66);
+// ... SELECT + WHERE ID
+$product = $entityManager->find('Models\Product', 3); // jei naudojame namespaceus
 $product !== NULL ? print $product->getId() . ' ' . $product->getName() : '';
 print("</pre><hr>");
 
 print("<pre>Find Product(s) by other property (name): " . "<br>");
-$products = $entityManager->getRepository('Product')->findBy(array('name' => 'Doe'));
+// ... SELECT + WHERE Name
+$products = $entityManager->getRepository('Models\Product')->findBy(array('name' => 'Batai'));
 $products[0] !== NULL ? print $products[0]->getId() . ' ' . $products[0]->getName() : '';
 print("</pre><hr>");
 
