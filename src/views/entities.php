@@ -34,6 +34,7 @@ if(isset($_POST['update_name'])){
 
 print("<pre>Find Product by id: " . "<br>");
 $product = $entityManager->find('Product', 66);
+// $product = $entityManager->find('Models\Product', 3); // jei naudojame namespaceus
 $product !== NULL ? print $product->getId() . ' ' . $product->getName() : '';
 print("</pre><hr>");
 
