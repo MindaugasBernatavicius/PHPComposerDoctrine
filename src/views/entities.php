@@ -71,8 +71,8 @@ foreach($products as $p)
 print("</table>"); 
 print("</pre><hr>");
 
-print("<pre>Find all Products: " . "<br></pre>");
-$products = $entityManager->getRepository('Product')->findAll();
+print("<pre>Find all Products: " . "<br>");
+$products = $entityManager->getRepository('Models\Product')->findAll();
 print("<table>");
 foreach($products as $p)
     print("<tr>" 
@@ -82,7 +82,7 @@ foreach($products as $p)
             . "<td><a href=\"?updatable={$p->getId()}\">UPDATE</a>♻️</td>"
         . "</tr>");
 print("</table>"); 
-print("<hr>");
+print("</pre><hr>");
 
 if(isset($_GET['updatable'])){
     $product = $entityManager->find('Product', $_GET['updatable']);
