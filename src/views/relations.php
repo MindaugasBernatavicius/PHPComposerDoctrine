@@ -23,14 +23,18 @@ if(isset($_GET['product_name'])){
 
 // Update shippment
 if(isset($_POST['update_shipment_details'])){
-    $product = $entityManager->find('Product', $_POST['update_id']);
-    $product->getShippment()->setShippmentDetails($_POST['update_shipment_details']);
+    // $product = $entityManager->find('Models\Product', $_POST['update_id']);
+    // $product->getShippment()->setShippmentDetails($_POST['update_shipment_details']);
+
+    $shipment = $entityManager->find('Models\Shipment', $_POST['update_id']);
+    $shipment->setShippmentDetails($_POST['update_shipment_details']);
+
     $entityManager->flush();
     redirect_to_root();
 }
 
 print("<pre>Find shippment for specific product (choose product with shipment): " . "<br>");
-$product = $entityManager->find('Product', 2);
+$product = $entityManager->find('Models\Product', 4);
 if($product){
     print($product->getName());
     $shipment = $product->getShippment();
@@ -43,7 +47,8 @@ if(isset($_GET['updatable'])){
     print("<pre>Update Shipment: </pre>");
     print("
         <form action=\"\" method=\"POST\">
-            <input type=\"hidden\" name=\"update_id\" value=\"{$product->getId()}\">
+            <!-- <input type=\"hidden\" name=\"update_id\" value=\"{$product->getId()}\"> -->
+            <input type=\"hidden\" name=\"update_id\" value=\"{$product->getShippment()->getId()}\">
             <label for=\"name\">Product name: </label><br>
             <input type=\"text\" name=\"update_shipment_details\" value=\"{$product->getShippment()->getShippmentDetails()}\"><br>
             <input type=\"submit\" value=\"Submit\">
