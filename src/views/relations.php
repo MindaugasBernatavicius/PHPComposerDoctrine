@@ -1,4 +1,8 @@
 <?php 
+
+use Models\Product;
+use Models\Shipment;
+
 include_once "bootstrap.php";
 
 // Helper functions
@@ -13,7 +17,7 @@ if(isset($_GET['product_name'])){
     if(isset($_GET['shipment_details'])){
         $shipment = new Shipments();
         $shipment->setShippmentDetails($_GET['shipment_details']);
-        $entityManager->persist($shipment);
+        $entityManager->persist($shipment); // will it work with this commented out?
         $product->setShippment($shipment);
     }
     $entityManager->persist($product);
