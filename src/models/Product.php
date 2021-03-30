@@ -11,6 +11,9 @@ dump($product);
 $shipment = $entityManager->find('Models\Shipment', 1);
 dump($shipment);
 
+
+
+
 Pavyzdys kaip elgtis su ArrayCollections
 
 $product = $entityManager->find('Models\Product', 4);
