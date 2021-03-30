@@ -1,5 +1,17 @@
 <?php
 
+
+/*
+Pavyzdys palyginimui kuo skiriasi 1:1 unidirectional ir bidirectional
+
+$product = $entityManager->find('Models\Product', 4);
+dump($product);
+
+$shipment = $entityManager->find('Models\Shipment', 1);
+dump($shipment);
+
+*/
+
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 
