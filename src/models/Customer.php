@@ -1,6 +1,20 @@
 <?php
 use Doctrine\ORM\Mapping as ORM;
 
+
+/*
+Demo kodas:
+
+include_once "bootstrap.php";
+
+$customer = $entityManager->find('Models\Customer', 2);
+dump($customer->getCart());
+
+$cart = $entityManager->find('Models\Cart', 2);
+dump($cart->getCustomer());
+
+*/
+
 /**
  * @ORM\Entity
  * @ORM\Table(name="customers")
