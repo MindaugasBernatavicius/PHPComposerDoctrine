@@ -2,10 +2,19 @@
 
 
 /*
+
 Pavyzdys palyginimui kuo skiriasi 1:1 unidirectional ir bidirectional
 
 $product = $entityManager->find('Models\Product', 4);
 dump($product);
+
+$shipment = $entityManager->find('Models\Shipment', 1);
+dump($shipment);
+
+Pavyzdys kaip elgtis su ArrayCollections
+
+$product = $entityManager->find('Models\Product', 4);
+dump($product->features[0]);
 
 $shipment = $entityManager->find('Models\Shipment', 1);
 dump($shipment);
