@@ -40,8 +40,9 @@ $product !== NULL ? print $product->getId() . ' ' . $product->getName() : '';
 print("</pre><hr>");
 
 print("<pre>Find Product(s) by other property (name): " . "<br>");
-// ... SELECT + WHERE Name
 $products = $entityManager->getRepository('Models\Product')->findBy(array('name' => 'Batai'));
+// ... SELECT + WHERE Name : SELECT * FROM products WHERE name = "Batai" AND id = 16;
+// $products = $entityManager->getRepository('Models\Product')->findBy(array('name' => 'Batai', 'id' => 16));
 $products[0] !== NULL ? print $products[0]->getId() . ' ' . $products[0]->getName() : '';
 print("</pre><hr>");
 
