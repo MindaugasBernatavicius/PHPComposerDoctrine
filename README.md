@@ -10,6 +10,6 @@
 <IfModule mod_rewrite.c>
 RewriteEngine on
 RewriteCond %{ENV:REDIRECT_STATUS} ^$
-RewriteRule ^(.*)$ app2/index.php/$1 [L]
+RewriteRule ^(.*)$ PHPComposerDoctrine/index.php/$1 [L]
 </IfModule>
 ```
