@@ -1,4 +1,4 @@
-#[www/.htaccess] when redirect from / to PHPComposerDoctrine/
+#[www/.htaccess OR htdocs/.htaccess] when redirect from / to PHPComposerDoctrine/
 #... then the local .htaccess picks up
 #RewriteEngine On
 #RewriteBase /
@@ -7,7 +7,7 @@
 #RewriteRule ^(.+)$ http://localhost/PHPComposerDoctrine/ [QSA,L]
 #RewriteRule ^(.+)$ http://localhost/PHPComposerDoctrine/index.php [QSA,L]
 
-#[www/.htaccess] when user is redirected transparently to PHPComposerDoctrine/ app 
+#[www/.htaccess OR htdocs/.htaccess] when user is redirected transparently to PHPComposerDoctrine/ app 
 #... local .htaccess is not needed and needs to be disabled
 #... this has the benefit of completelly isolating the applicaiton so we can't access the /views directly
 #<IfModule mod_rewrite.c>
