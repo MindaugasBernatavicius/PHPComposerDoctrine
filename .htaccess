@@ -1,11 +1,10 @@
 #[www/.htaccess OR htdocs/.htaccess] when redirect from / to PHPComposerDoctrine/
 #... then the local .htaccess picks up
-#RewriteEngine On
-#RewriteBase /
-#RewriteCond %{REQUEST_FILENAME} !-d
-#RewriteCond %{REQUEST_FILENAME} !-f
-#RewriteRule ^(.+)$ http://localhost/PHPComposerDoctrine/ [QSA,L]
-#RewriteRule ^(.+)$ http://localhost/PHPComposerDoctrine/index.php [QSA,L]
+# RewriteEngine On
+# RewriteBase /
+# # RewriteCond %{REQUEST_FILENAME} !-d # is not needed with xampp
+# RewriteCond %{REQUEST_FILENAME} !-f
+# RewriteRule ^(.*)$ http://localhost/PHPOOPdelete/ [QSA,L]
 
 #[www/.htaccess OR htdocs/.htaccess] when user is redirected transparently to PHPComposerDoctrine/ app 
 #... local .htaccess is not needed and needs to be disabled
