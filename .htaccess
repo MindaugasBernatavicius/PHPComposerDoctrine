@@ -1,23 +1,28 @@
-#[www/.htaccess OR htdocs/.htaccess] when redirect from / to PHPComposerDoctrine/
-#... then the local .htaccess picks up
+#[www/PHPComposerDoctrine/.htaccess]  local .htaccess file at the project root
+# RewriteEngine on
+# RewriteCond %{SCRIPT_FILENAME} !-f
+# RewriteCond %{SCRIPT_FILENAME} !-d
+# RewriteCond %{SCRIPT_FILENAME} !-l
+# RewriteRule ^(.*)$ index.php/$1 [QSA,L]
+
+
+#[www/.htaccess OR htdocs/.htaccess] user is redirected transparently to PHPOOPdelete/ app (requires local .htaccess and no prefix in router)
 # RewriteEngine On
 # RewriteBase /
 # # RewriteCond %{REQUEST_FILENAME} !-d # is not needed with xampp
 # RewriteCond %{REQUEST_FILENAME} !-f
 # RewriteRule ^(.*)$ http://localhost/PHPOOPdelete/ [QSA,L]
 
-#[www/.htaccess OR htdocs/.htaccess] when user is redirected transparently to PHPComposerDoctrine/ app 
-#... local .htaccess is not needed and needs to be disabled
-#... this has the benefit of completelly isolating the applicaiton so we can't access the /views directly
+
+#[www/.htaccess OR htdocs/.htaccess] user is redirected to PHPOOPdelete/ app (requires local .htaccess and prefix /PHPOOPdelete in router)
+# RewriteEngine on
+# RewriteCond %{ENV:REDIRECT_STATUS} ^$
+# RewriteRule ^(.*)$ http://localhost/PHPOOPdelete [R,L]
+
+
+#Checks for module can be added
 #<IfModule mod_rewrite.c>
 #RewriteEngine on
 #RewriteCond %{ENV:REDIRECT_STATUS} ^$
 #RewriteRule ^(.*)$ PHPComposerDoctrine/index.php/$1 [L]
 #</IfModule>
-
-#[www/PHPComposerDoctrine/.htaccess] 
-# RewriteEngine on
-# RewriteCond %{SCRIPT_FILENAME} !-f
-# RewriteCond %{SCRIPT_FILENAME} !-d
-# RewriteCond %{SCRIPT_FILENAME} !-l
-# RewriteRule ^(.*)$ index.php/$1 [QSA,L]
